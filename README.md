@@ -1,9 +1,23 @@
 # dev-activity
 
-This repo tests the functionality of using `pre-commit`, `unittest`, and `pytest`.
+This repo is used to demonstrate work flow processes used in data pipelines.  Here are some examples:
+* Checking for formatting and file structure issues prior to committing with git hooks:`pre-commit`
+* Testing code functionality by checking input and output consistency:  `unittest` and `pytest`
+
+## Unit Testing Uses
+* For batch data that may be applied to training on a machine learning pipeline:
+    *  Check that all required columns are present for the pipeline
+    *  Check for a minimum number of rows
+    *  Check for data range (min/max)
+    *  Check for date range
+    *  Check for distribution
+    *  Check for maximum execution time
+
+
 
 Ref:  https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/
 
+Ref:  https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#testing-with-pytest-and-pytest-cov
 
 
 
