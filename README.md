@@ -1,6 +1,8 @@
 # dev-activity
 
+This repo tests the functionality of using `pre-commit`, `unittest`, and `pytest`.
 
+Ref:  https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/
 
 
 
