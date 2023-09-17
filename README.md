@@ -1,10 +1,18 @@
 # dev-activity
 
+Auhtor:  Erin James Wills, ejw.data@gmail.com  
+
+![Continuous Integrations](./images/dev-activity-integrations.png) 
+ 
+<cite>Photo by <a href="https://unsplash.com/@campaign_creators?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Campaign Creators</a> on <a href="https://unsplash.com/photos/--kQ4tBklJI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></cite>
+
+<br>
+
+## Overview
 This repo is used to demonstrate work flow processes used in data pipelines.  Here are some examples:
 * Checking for formatting and file structure issues prior to committing with git hooks:`pre-commit`
 * Testing code functionality by checking input and output consistency:  `unittest` and `pytest`
 * Creating custom git commands that automate common routines
-
 
 ## Purpose
 The overall goal of this repo is very specific:  I would like to automate common routines and create a workflow of best practices.  Intially, I thought I would use two features to add workflows - git hooks by using `pre-commit` and github actions as my simple CI/CD tool.  I immediately saw three problems.  First, pre-commits are nice in concept but by default they run on all branches unless you manipulate the config file for each branch.  I would prefer to have different procedures for `bug` and `feature` branches as well as a `test` branch and a `dev` branch.  The final branch would be the `prod` branch.  The second problem is that pre-commits are locally controlled and can be modified or simply bypassed if the user desires.  The pre-commits should be used not as a policy but as a best practice before sending updates to be merged.  The third problem is that the commit failures can become annoying and discourage frequent commits for version control and pushes for backup purposes.  These realizatons helped me design the following plan as a compromise that encourages good habits and separates that from good policies:
@@ -46,7 +54,7 @@ Right now these files are just proof-of-concept tests to solve initial design is
 - To confirm installation, type: `pre-commit —V`
 
 
-## Intiial Setup
+## Intitial Setup
 1.  Create an initial yaml file.  This step could be done manually.
     * Type: `pre-commit sample-config > .pre-commit-config.yaml`
 1.  Add any additional pre-commits as needed.  The hook can be created in this file or reference an external file url.
