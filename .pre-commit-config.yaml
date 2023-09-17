@@ -1,5 +1,7 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
+
+# Primary commit checks
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.2.0
@@ -20,7 +22,7 @@ repos:
         entry: jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
 # checks and fixes python style
 -   repo: https://github.com/psf/black
-    rev: 19.3b0
+    rev: 22.3.0
     hooks:
     -   id: black
 # Below are common local installs
