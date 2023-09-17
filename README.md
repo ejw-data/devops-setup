@@ -16,7 +16,13 @@ The overall goal of this repo is very specific:  I would like to automate common
 1.  The last step is to merge the `dev` into `prod` and at this phase the standard reliabilty testing occurs through synthetic and direct testing.
 
 
+## GitHub Workflows  
+Right now these files are just proof-of-concept tests to solve initial design issues.  
+* `test-checks.yaml` only runs when a merge is attempted on the `test` branch.  This branch runs the pytest functionality tests.
+* `python-app.yaml` only runs when a merge is attempted on the `main` branch.  This is a template workflow from github and will be customized in the future.  
 
+## Other GitHub Configurations  
+*  Protection from force-pushes and branch deletion was added to the `test`, `dev`, and `main` branches.
 
 ## Unit Testing Uses
 * For batch data that may be applied to training on a machine learning pipeline:
@@ -27,18 +33,12 @@ The overall goal of this repo is very specific:  I would like to automate common
     *  Check for distribution
     *  Check for maximum execution time
 
-
-
-Ref:  https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/
-
-Ref:  https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#testing-with-pytest-and-pytest-cov
-
-
-**Run Hook before Merge**
-```bash
-[hooks]
-pre-commit = !sh -c 'if [[ $GIT_MERGE_HEAD ]]; then npm run pre-commit-on-merge; fi'
-```
+## Future Work  
+*  Update names for github workflows
+*  Use `test-checks.yaml` as a template for checks on the `dev` and `main` branch
+*  Rename `main` branch to `prod`
+*  Determine what type of configuration is needed with `pre-commit ci`.  Using default settings currently.
+*  Create github workflow that uses `.pre-commit-config.yaml` in the `push` or `pull_request` step of the `test` branch to fix formatting.  This solves the issue if the user bypasses the `pre-commit` locally.  
 
 ## Installation
 - `pip install pre-commit`
