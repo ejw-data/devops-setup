@@ -3,6 +3,7 @@
 
 # Do not exlude this hidden file
 !.gitignore
+!.pre-commit-config.yaml
 !.github/
 !.git/hooks
 
