@@ -39,6 +39,7 @@ Right now these files are just proof-of-concept tests to solve initial design is
 *  Rename `main` branch to `prod`
 *  Determine what type of configuration is needed with `pre-commit ci`.  Using default settings currently.
 *  Create github workflow that uses `.pre-commit-config.yaml` in the `push` or `pull_request` step of the `test` branch to fix formatting.  This solves the issue if the user bypasses the `pre-commit` locally.  
+*  Create a workflow that can automatically push changes from any branch to `test` > `dev` > `prod` assuming no errors.
 
 ## Installation
 - `pip install pre-commit`
