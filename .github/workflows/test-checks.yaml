@@ -1,0 +1,29 @@
+name: Branch Consistency Checks
+
+on:
+  push:
+  pull_request:
+    branches: [ "test" ]
+
+jobs:
+  build:
+      name: Run Pre-Merge Test on Test Branch
+      runs-on: ubuntu-latest
+
+      steps:
+
+        -   name: Checkout Code
+            uses: actions/checkout@v3
+
+        -   name: Setup Python
+            uses: actions/setup-python@v4
+            with:
+              python-version: "3.10"
+
+        -   name: Install Dependencies
+            run: |
+              python -m pip install pytest
+              if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+        -   name: Run Tests
+            run: pytest
