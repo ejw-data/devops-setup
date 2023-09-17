@@ -1,7 +1,6 @@
 name: Branch Consistency Checks
 
 on:
-  push:
   pull_request:
     branches: [ "test" ]
 
