@@ -13,6 +13,9 @@
 1.  The code should work now.  If you have problems running any of the other git commands then there is a problem with how the Path was set above.
 1.  Close out terminal and go to an existing repo.
 
+### Executing
+1.  Type `git autopush`
+
 
 ### Sample Script
 
@@ -27,9 +30,10 @@ while : ; do
     case "${RESPONSE}" in
         [Yy]* )
             if [ ! -z "$1" ] # checking if the commit message is present. If not then aborting.
+            git status -v
             then
                 git add .
-                git commit -m "$message"
+                git commit -m "CLEANED: $message"
                 git push origin $currentBranch
             else
                 echo "Commit message is not provided"
@@ -40,7 +44,7 @@ while : ; do
             if [ ! -z "$1" ] # checking if the commit message is present. If not then aborting.
             then
                 git add .
-                git commit -m "$message" --no-verify
+                git commit -m "RAW: $message" --no-verify
                 git push origin $currentBranch
             else
                 echo "Commit message is not provided"
