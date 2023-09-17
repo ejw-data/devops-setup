@@ -20,6 +20,11 @@ Ref:  https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-i
 Ref:  https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#testing-with-pytest-and-pytest-cov
 
 
+**Run Hook before Merge**
+```bash
+[hooks]
+pre-commit = !sh -c 'if [[ $GIT_MERGE_HEAD ]]; then npm run pre-commit-on-merge; fi'
+```
 
 ## Installation
 - `pip install pre-commit`
