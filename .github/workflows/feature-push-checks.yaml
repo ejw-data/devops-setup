@@ -1,0 +1,21 @@
+name: Project Branch Initial Checks
+on:
+  pull_request:
+  push:
+    branches: [bug-*,feat-*]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Branch
+      uses: actions/checkout@v3
+    - name: Setup Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    - name:  Apply Pre-Commit Checks
+      uses: pre-commit/action@v3.0.0
+    - name:  Apply Pre-Commit Lite Checks
+      uses: pre-commit-ci/lite-action@v1.0.1
+      if: always()
