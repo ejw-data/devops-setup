@@ -1,27 +1,27 @@
 #!/bin/sh
 
 message=$1 # First parameter will be the commit message
-currentBranch=$(git symbolic-ref --short -q HEAD) # Getting the current branch  
+currentBranch=$(git symbolic-ref --short -q HEAD) # Getting the current branch
 
 while : ; do
     read -p "Do you want to apply pre-commit checks?  [y/n]" RESPONSE < /dev/tty
     case "${RESPONSE}" in
-        [Yy]* ) 
+        [Yy]* )
             if [ ! -z "$1" ] # checking if the commit message is present. If not then aborting.
             then
                 git add .
-                git commit -m "$message"
+                git commit -m "CLEANED:  $message"
                 git push origin $currentBranch
             else
                 echo "Commit message is not provided"
             fi
-            exit 0; 
+            exit 0;
             break;;
-        [Nn]* ) 
+        [Nn]* )
             if [ ! -z "$1" ] # checking if the commit message is present. If not then aborting.
             then
                 git add .
-                git commit -m "$message" --no-verify
+                git commit -m "RAW:  $message" --no-verify
                 git push origin $currentBranch
             else
                 echo "Commit message is not provided"
