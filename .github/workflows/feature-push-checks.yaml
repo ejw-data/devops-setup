@@ -1,4 +1,4 @@
-name: Individual Branch Initial Checks
+name: Project Branch Initial Checks
 on:
   pull_request:
   push:

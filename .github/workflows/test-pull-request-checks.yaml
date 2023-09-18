@@ -1,4 +1,4 @@
-name: Branch Consistency Checks
+name: Test Branch Consistency Checks
 
 on:
   pull_request:
