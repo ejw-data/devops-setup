@@ -10,7 +10,7 @@ while : ; do
             if [ ! -z "$1" ] # checking if the commit message is present. If not then aborting.
             then
                 git add .
-                git commit -m "$message"
+                git commit -m "CLEANED:  $message"
                 git push origin $currentBranch
             else
                 echo "Commit message is not provided"
@@ -21,7 +21,7 @@ while : ; do
             if [ ! -z "$1" ] # checking if the commit message is present. If not then aborting.
             then
                 git add .
-                git commit -m "$message" --no-verify
+                git commit -m "RAW:  $message" --no-verify
                 git push origin $currentBranch
             else
                 echo "Commit message is not provided"
