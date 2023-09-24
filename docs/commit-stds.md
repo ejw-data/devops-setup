@@ -52,7 +52,8 @@ $ git stitch remote/<remote branch name>
 
 **Examples**:
 ```feat(home): add signup link to home page```
-```fix(signup): allow signup button to be clicked```
+```fix(signup): updated signup to validate inputs faster```
+```bug(api):  removed null values in data pipeline and past database entries```
 
 **Automated Package**:
 * `Commitlint` - enforces rules for commits
