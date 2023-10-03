@@ -1,6 +1,6 @@
 # dev-activity
 
-Auhtor:  Erin James Wills, ejw.data@gmail.com
+Author:  Erin James Wills, ejw.data@gmail.com
 
 ![Continuous Integrations](./images/dev-activity-integrations.png)
 
