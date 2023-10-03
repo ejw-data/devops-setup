@@ -1,12 +1,16 @@
 # dev-activity
 
-Auhtor:  Erin James Wills, ejw.data@gmail.com
+Author:  Erin James Wills, ejw.data@gmail.com
 
 ![Continuous Integrations](./images/dev-activity-integrations.png)
 
 <cite>Photo by <a href="https://unsplash.com/@campaign_creators?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Campaign Creators</a> on <a href="https://unsplash.com/photos/--kQ4tBklJI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></cite>
 
 <br>
+
+```
+Status:  Setup complete.  Ready to create additional customizations.
+```
 
 ## Overview
 This repo is used to demonstrate work flow processes used in data pipelines.  Here are some examples:
@@ -26,11 +30,13 @@ The overall goal of this repo is very specific:  I would like to automate common
 
 ## GitHub Workflows
 Right now these files are just proof-of-concept tests to solve initial design issues.
-* `test-checks.yaml` only runs when a merge is attempted on the `test` branch.  This branch runs the pytest functionality tests.
-* `python-app.yaml` only runs when a merge is attempted on the `main` branch.  This is a template workflow from github and will be customized in the future.
+* `feature-push-checks` only runs on pushes of branches starting with `bug-*` or `feat-*`.  This forces the `pre-commit ci` to run based on the setup found in `.pre-commit-config.yaml`
+* `test-pull-request-checks.yaml` only runs when a merge is attempted on the `test` branch.  This branch runs the pytest functionality tests.
+* `prod-pull-request-checks.yaml` only runs when a merge is attempted on the `prod` branch.  This is a template workflow from github and will be customized in the future.
 
 ## Other GitHub Configurations
-*  Protection from force-pushes and branch deletion was added to the `test`, `dev`, and `main` branches.
+*  Protection from force-pushes and branch deletion was added to the `test`, `dev`, and `prod` branches.
+*  Added [instructions](./docs/commit-stds.md) about creating commit messages.
 
 ## Unit Testing Uses
 * For batch data that may be applied to training on a machine learning pipeline:
@@ -43,11 +49,12 @@ Right now these files are just proof-of-concept tests to solve initial design is
 
 ## Future Work
 - [x] Update names for github workflows
-- [ ] Use `test-pull-request-checks.yaml` as a template for checks on the `dev` and `main` branch
+- [x] Use `test-pull-request-checks.yaml` as a template for checks on the `dev` and `prod` branch
 - [x] Rename `main` branch to `prod`
 - [x] Determine what type of configuration is needed with `pre-commit ci`.  Using default settings currently.
 - [x] Create github workflow that uses `.pre-commit-config.yaml` in the `push` or `pull_request` step of the `test` branch to fix formatting.  This solves the issue if the user bypasses the `pre-commit` locally.
 - [ ] Create a workflow that can automatically push changes from any branch to `test` > `dev` > `prod` assuming no errors.
+- [ ] Create an environment variable on GitHub to use in scripts and apis
 
 ## Installation
 - `pip install pre-commit`
@@ -75,7 +82,7 @@ Popular hook projects:
 | isort  | formats code |
 | black  | formats python code |
 | flake8  | formats code |
-| mypy  |  |
+| mypy  | static type checker |
 | dodgy  | checks for commit passwords, secret keys, etc  |
 | pylint  | formats code |
 | bandit | checks for security issues |

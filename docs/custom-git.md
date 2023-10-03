@@ -14,7 +14,7 @@
 1.  Close out terminal and go to an existing repo.
 
 ### Executing
-1.  Type `git autopush`
+1.  Type `git autopush "<message">`
 
 
 ### Sample Script
