@@ -4,7 +4,7 @@
 # Primary commit checks
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v5.0.0
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
@@ -17,12 +17,12 @@ repos:
     -   id: jupyter-nb-clear-output
         name: jupyter-nb-clear-output
         files: \.ipynb$
-        stages: [commit]
+        stages: [pre-commit]
         language: system
         entry: jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
 # checks and fixes python style
 -   repo: https://github.com/psf/black
-    rev: 22.3.0
+    rev: 24.10.0
     hooks:
     -   id: black
 # Below are common local installs
